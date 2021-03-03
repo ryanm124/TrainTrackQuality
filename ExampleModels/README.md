@@ -11,7 +11,7 @@ There is also a `functions.py` script which provides the users with a few functi
 Each example takes in a `*.root` ntuple which holds all of the data for training and testing the model. This ntuple can be created from the default [L1NtupleMaker](https://github.com/cms-L1TK/cmssw/blob/L1TK-dev-11_2_0_pre6/L1Trigger/TrackFindingTracklet/test/L1TrackNtupleMaker_cfg.py) in the L1TK/TrackFindingTracklet/test folder. You will have to update the name of the ntuple in the example scripts before you run.
 
 To run any examples, you must first import these packages:
-- [uproot](https://pypi.org/project/uproot/) used to import .root files
+- [uproot3](https://pypi.org/project/uproot3/) used to import .root files
 - [Scikit-Learn](https://scikit-learn.org/stable/install.html) used to evaluate all models
 - [NumPy](https://numpy.org/install/) used for many array and mathematical operations
 - [onnxmltools](https://pypi.org/project/onnxmltools/1.0.0.0/) used to convert models to onnx

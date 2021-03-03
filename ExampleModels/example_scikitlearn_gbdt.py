@@ -2,7 +2,7 @@
 # Go to https://scikit-learn.org/stable/install.html and 
 # https://pypi.org/project/skl2onnx/ to install
 
-import uproot
+import uproot3
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.ensemble import GradientBoostingClassifier
@@ -14,7 +14,7 @@ from onnxmltools.convert.common.data_types import FloatTensorType
 # -----IMPORT .ROOT FILES-----
 
 # Take in .root into arrays
-arrays = (uproot.open("TTbar_PU200_D49_prompt.root")["L1TrackNtuple/eventTree"]
+arrays = (uproot3.open("TTbar_PU200_D49_prompt.root")["L1TrackNtuple/eventTree"]
                 .arrays("*", namedecode="utf-8"))
 
 # A look at what variables you can use as inputs to your model

@@ -7,7 +7,7 @@ This directory contains code that will recreate the default L1 track trigger tra
 To recreate the default model, you must run a Z->ee, Z->uu, and QCD +200PU sample through the default [ntuplemaker](https://github.com/cms-sw/cmssw/blob/master/L1Trigger/TrackFindingTracklet/test/L1TrackNtupleMaker_cfg.py) found in L1Trigger/TrackFindingTracklet/test. Combine the 3 separate samples into one (using `hadd ...` for example) and use this as input to the `create_default_gbdt.py` script (line 15).
 
 There are also a few packages that need to be installed:
-- [uproot](https://pypi.org/project/uproot/) used to import .root files
+- [uproot3](https://pypi.org/project/uproot3/) used to import .root files
 - [Scikit-Learn](https://scikit-learn.org/stable/install.html) used to evaluate all models
 - [NumPy](https://numpy.org/install/) used for many array and mathematical operations
 - [onnxmltools](https://pypi.org/project/onnxmltools/1.0.0.0/) used to convert models to onnx

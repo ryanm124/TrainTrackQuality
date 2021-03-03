@@ -1,4 +1,4 @@
-import uproot
+import uproot3
 import numpy as np
 import matplotlib.pyplot as plt
 from classes import dataType
@@ -12,7 +12,7 @@ from onnxmltools.convert.common.data_types import FloatTensorType
 
 # -----IMPORT DATA-----
 # take in .root into arrays
-arrays_hybrid = (uproot.open("combinedsample_pu200.root")["L1TrackNtuple/eventTree"]
+arrays_hybrid = (uproot3.open("combinedsample_pu200.root")["L1TrackNtuple/eventTree"]
                  .arrays("*", namedecode="utf-8"))
 
 # create data in proper format

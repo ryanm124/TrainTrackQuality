@@ -1,4 +1,4 @@
-import uproot
+import uproot3
 import numpy as np
 import matplotlib.pyplot as plt
 import xgboost as xgb
@@ -10,7 +10,7 @@ from onnxmltools.convert.common.data_types import FloatTensorType
 # -----IMPORT .ROOT FILES-----
 
 # Take in .root into arrays
-arrays = (uproot.open("TTbar_PU200_D49_prompt.root")["L1TrackNtuple/eventTree"]
+arrays = (uproot3.open("TTbar_PU200_D49_prompt.root")["L1TrackNtuple/eventTree"]
                 .arrays("*", namedecode="utf-8"))
 
 # A look at what variables you can use as inputs to your model
