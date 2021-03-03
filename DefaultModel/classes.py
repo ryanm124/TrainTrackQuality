@@ -32,7 +32,7 @@ class trks:
         self.X_feats = None
         self.pt = data_arrays['trk_pt'].flatten()
         self.eta = data_arrays['trk_eta'].flatten()
-        self.chi2pdof = data_arrays['trk_chi2pdof'].flatten()
+        self.chi2pdof = data_arrays['trk_chi2'].flatten()/(2*data_arrays['trk_nstub'].flatten()-4)
         self.X = self.setX(data_arrays, feats)
         self.y = self.setY(data_arrays)
         self.pdgid = abs(data_arrays['trk_matchtp_pdgid'].flatten())
