@@ -4,7 +4,7 @@ This directory contains code that will recreate the default L1 track trigger tra
 
 ## Dependencies
 
-To recreate the default model, you must run a Z->ee, Z->uu, and QCD +200PU sample through the default [ntuplemaker](https://github.com/cms-sw/cmssw/blob/master/L1Trigger/TrackFindingTracklet/test/L1TrackNtupleMaker_cfg.py) found in L1Trigger/TrackFindingTracklet/test. Combine the 3 separate samples into one (using `hadd ...` for example) and use this as input to the `create_default_gbdt.py` script (line 15).
+To recreate the default model, you must run a Z->ee, Z->uu, and QCD +200PU sample through the default [ntuplemaker](https://github.com/cms-sw/cmssw/blob/master/L1Trigger/TrackFindingTracklet/test/L1TrackNtupleMaker_cfg.py) found in L1Trigger/TrackFindingTracklet/test (5000 events of each should be sufficienct). Combine the 3 separate samples into one (using `hadd ...` for example) and use this as input to the `create_default_gbdt.py` script (line 15).
 
 There are also a few packages that need to be installed:
 - [uproot3](https://pypi.org/project/uproot3/) used to import .root files
