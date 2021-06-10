@@ -124,7 +124,7 @@ clf_GBDT.fit(X_train_bin,y_train)
 # -----EVALUATE MODEL-----
 
 # Create roc curve with AUC (area under curve) value
-y_pred = clf_GBDT.predict_proba(X_test)[:,1]
+y_pred = clf_GBDT.predict_proba(X_test_bin)[:,1]
 fpr, tpr, dt = roc_curve(y_test,y_pred)
 auc = roc_auc_score(y_test, y_pred)
 
@@ -145,7 +145,7 @@ plt.savefig('TPR_FPR_vs_dt.png')
 plt.close()
 
 # Create TPR/FPR vs. pt
-pt, eff, faker, err_eff, err_faker = get_eff_faker_vs_feat('pt',pt_test,X_test,y_test,clf_GBDT)
+pt, eff, faker, err_eff, err_faker = get_eff_faker_vs_feat('pt',pt_test,X_test_bin,y_test,clf_GBDT)
 
 plt.errorbar(pt,eff,yerr=err_eff,linestyle='None',fmt='.')
 plt.xlabel('p$_{T}$ (GeV/c)',fontsize=14)
@@ -160,7 +160,7 @@ plt.savefig('FPR_vs_pt.png')
 plt.close()
 
 # Create TPR/FPR vs. eta
-pt, eff, faker, err_eff, err_faker = get_eff_faker_vs_feat('eta',eta_test,X_test,y_test,clf_GBDT)
+pt, eff, faker, err_eff, err_faker = get_eff_faker_vs_feat('eta',eta_test,X_test_bin,y_test,clf_GBDT)
 
 plt.errorbar(pt,eff,yerr=err_eff,linestyle='None',fmt='.')
 plt.xlabel('$\eta$',fontsize=14)
