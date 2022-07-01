@@ -102,17 +102,18 @@ X_test,y_test,pdgid_test,pt_test,eta_test,chi2pdof_test = shuffle(X_test,y_test,
                                                                   eta_test,chi2pdof_test,random_state=23)
 
 # bin all of the chi2 variables
-chi2_bins = np.array([0, 0.25, 0.5, 1, 2, 3, 5, 7, 10, 20, 40, 100, 200, 500, 1000, 3000, np.inf])
-bendchi2_bins = np.array([0, 0.5, 1.25, 2, 3, 5, 10, 50, np.inf])
+chi2rz_bins = np.array([0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 6.0, 8.0, 10.0, 20.0, 50.0, np.inf])
+chi2rphi_bins = np.array([0.0, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 5.0, 6.0, 10.0, 15.0, 20.0, 35.0, 60.0, 200.0, np.inf])
+bendchi2_bins = np.array([0.0, 0.75, 1.0, 1.5, 2.25, 3.5, 5.0, 20.0, np.inf])
 
 X_train_bin = X_train.copy()
-X_train_bin[:,6] = np.digitize(X_train_bin[:,6],chi2_bins)-1 #chi2rphi
-X_train_bin[:,7] = np.digitize(X_train_bin[:,7],chi2_bins)-1 #chi2rz
+X_train_bin[:,6] = np.digitize(X_train_bin[:,6]/(X_train_bin[:,4]-2),chi2rphi_bins)-1 #chi2rphi
+X_train_bin[:,7] = np.digitize(X_train_bin[:,7]/(X_train_bin[:,4]-2),chi2rz_bins)-1 #chi2rz
 X_train_bin[:,3] = np.digitize(X_train_bin[:,3],bendchi2_bins)-1 #bendchi2
 
 X_test_bin = X_test.copy()
-X_test_bin[:,6] = np.digitize(X_test_bin[:,6],chi2_bins)-1 #chi2rphi
-X_test_bin[:,7] = np.digitize(X_test_bin[:,7],chi2_bins)-1 #chi2rz
+X_test_bin[:,6] = np.digitize(X_test_bin[:,6]/(X_test_bin[:,4]-2),chi2rphi_bins)-1 #chi2rphi
+X_test_bin[:,7] = np.digitize(X_test_bin[:,7]/(X_test_bin[:,4]-2),chi2rz_bins)-1 #chi2rz
 X_test_bin[:,3] = np.digitize(X_test_bin[:,3],bendchi2_bins)-1 #bendchi2
 
 # -----TRAIN MODEL-----
